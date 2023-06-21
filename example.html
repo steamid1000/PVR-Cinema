@@ -1,0 +1,109 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"> </script>
+
+ 
+
+<style>
+  *{
+    background-color: rgba(40, 82, 116, 0.863);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+  }
+  .containt{
+    text-align: center;
+  }
+  body{
+   background-size: cover;
+   background-repeat: no-repeat;
+   font-family: tahoma;
+   overflow: hidden;
+
+  }
+  .mfp-hide{
+    display: none !important;
+  }
+  .button{
+    padding: 20px 40px;
+    border-color: white;
+    font-size: 1.7rem;
+    font-family: tahoma;
+    font-weight: bold;
+    margin-top: 40px;
+    display: inline-block;
+
+  }
+  .button{
+    border: 2px solid white;
+    color:black ;
+    text-transform:uppercase;
+    transition: all 0.5s ease-in-out;
+    border-radius: 50px;
+    background: white;
+    font-weight: bold;
+  }
+  .button .fa{
+    margin-left: 20px;
+  }
+
+.button:hover, .button:focus{
+  background: transparent;
+  text-decoration: transparent;
+  color: white;
+  font-weight: bold;
+  outline: none;
+}
+
+button.mfp-close{
+  overflow: visible;
+  cursor:pointer;
+  background: white;
+  border:0;
+  border: 0;
+  -webkit-appearance: none;
+  display: block;
+  outline: 0;
+  padding: 0;
+  z-index: 1046;
+  box-shadow: none;
+
+}
+.mfp-close{
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  line-height: 44px;
+  position: absolute;
+  right: 40px;
+
+}
+
+</style>
+</head>
+
+<body>
+<div class="containt"> 
+  <h1>amzing</h1>
+<a href="#videostory" class="button more" id="videolink">Watch Trealer <i class="fa fa-play-circle" aria-hidden="true">&nbsp;</i></a>
+
+<div id="videostory" class="mfp-hide"style="max-width: 75%; margin: 0 auto; ">
+  <iframe class="vdo" width="853" height="480" src="https://www.youtube.com/embed/Hi4ktzK9g0I" title="YouTube video player" frameborder="3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+</div>
+<script>
+  $('#videolink').magnificPopup({
+    type:'inline',
+    midClick:true
+  })
+</script>
+</body>

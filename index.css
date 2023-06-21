@@ -1,0 +1,17 @@
+*{
+    background-color: black;
+    color: white;
+}
+
+#title{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    color:white;
+}
+
+#titleline{
+    position: absolute;
+    margin-top: 50%;
+    
+}
