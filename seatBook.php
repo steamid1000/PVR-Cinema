@@ -14,13 +14,16 @@
         <title>Movie Seat Booking</title>
       </head>
       <body>
+        <div class="movie-container">
+          <select id="movie">
+            <option value="100"> (RS.100)</option>
+          </select>
+        </div>
         
-     <h1><option value="SEAT BOOKING"> SEAT BOOKING</A></option></h1>
-
-      <h2><ul class="showcase">
+        <ul class="showcase">
           <li>
             <div class="seat"></div>
-            <small>Vacant</small>
+            <small>N/A</small>
           </li>
     
           <li>
@@ -30,13 +33,12 @@
     
           <li>
             <div class="seat occupied"></div>
-            <small>Booked</small>
+            <small>occupied</small>
           </li>
-        </ul></h2>
-
-
+        </ul>
+    
         <div class="container">
-          <<div class="screen"></div>
+          <div class="screen"></div>
           <div class="row">
             <div class="seat">1</div>
             <div class="seat">2</div>
@@ -47,13 +49,12 @@
             <div class="seat">7</div>
             <div class="seat">8</div>
           </div>
-
           <div class="row">
             <div class="seat">9</div>
             <div class="seat">10</div>
             <div class="seat">11</div>
-            <div class="seat">12</div>
-            <div class="seat">13</div>
+            <div class="seat ">12</div>
+            <div class="seat ">13</div>
             <div class="seat">14</div>
             <div class="seat">15</div>
             <div class="seat">16</div>
@@ -66,11 +67,11 @@
             <div class="seat">20</div>
             <div class="seat">21</div>
             <div class="seat">22</div>
-            <div class="seat">23</div>
-            <div class="seat">24</div>
+            <div class="seat ">23</div>
+            <div class="seat ">24</div>
           </div>
-
-           <div class="row">
+    
+          <div class="row">
             <div class="seat">25</div>
             <div class="seat">26</div>
             <div class="seat">27</div>
@@ -79,24 +80,36 @@
             <div class="seat">30</div>
             <div class="seat">31</div>
             <div class="seat">32</div>
-            </div>  
-
+          </div>
+    
           <div class="row">
             <div class="seat">33</div>
             <div class="seat">34</div>
             <div class="seat">35</div>
-            <div class="seat">36</div>
-            <div class="seat">37</div>
+            <div class="seat ">36</div>
+            <div class="seat ">37</div>
             <div class="seat">38</div>
             <div class="seat">39</div>
-            <div class="seat">40</div> 
+            <div class="seat">40</div>
           </div>
-</br>
     
-        <h2><p class="text">
+          <div class="row">
+            <div class="seat">41</div>
+            <div class="seat">42</div>
+            <div class="seat">43</div>
+            <div class="seat">44</div>
+            <div class="seat ">45</div>
+            <div class="seat ">46</div>
+            <div class="seat ">47</div>
+            <div class="seat">48</div>
+          </div>
+        </div>
+
+        
+    
+        <p class="text">
           You have selected <span id="count">0</span> seats for a price of Rs.<span id="total">0</span>
         </p>
-      </h2>
         
 
         <button id="Confrm" style="margin:10px; padding:15px; border-radius: 20px; font-size:0.9rem; background-color:rgba(3, 161, 239, 0.915); " >Procced to Payment</button>

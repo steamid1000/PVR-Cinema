@@ -8,22 +8,18 @@ const Btn = document.getElementById('Confrm');
 
 populateUI();
 
-let ticketPrice;
+let ticketPrice = +movieSelect.value;
 var Sold = arr; //^  array of the seats which have been sold already
 var Selected_seats;//* This will the seats which are selected
 
-//? update total and count 
-function updateSelectedCount(price) {
-  const selectedSeatsLux = document.querySelectorAll('.row .seat.lux.selected');
-  //const selectedSeats = document.querySelectorAll('.row .seat:not(.lux).selected');
-  
-  //const selectedSeatsLuxCount = selectedSeatsLux.length;
+//? update total and count
+function updateSelectedCount() {
+  const selectedSeats = document.querySelectorAll('.row .seat.selected');
+
   const selectedSeatsCount = selectedSeats.length;
 
   count.innerText = selectedSeatsCount;
-
-
-  total.innerText = selectedSeatsCount*ticketPrice;
+  total.innerText = selectedSeatsCount * ticketPrice;
 }
 
 // get data from localstorage and populate ui
@@ -62,24 +58,20 @@ function taken() {  //^Displays the seats which have been sold already as occupi
 
 
 
-// // Movie select event
+// Movie select event
 movieSelect.addEventListener('change', (e) => {
- 
-  
-ticketPrice = +e.target.value;
- 
-setMovieData(e.target.selectedIndex, e.target.value);
-updateSelectedCount();
+  ticketPrice = +e.target.value;
+  setMovieData(e.target.selectedIndex, e.target.value);
+  updateSelectedCount();
 });
 
 // Seat click event
 container.addEventListener('click', (e) => {
   if (e.target.classList.contains('seat') && !e.target.classList.contains('occupied')) {
     e.target.classList.toggle('selected');
-    
+
     updateSelectedCount();
   }
- 
 });
 
 

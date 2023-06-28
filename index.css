@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: large;
+    width: 100%;
 }
 
 #title{
@@ -84,3 +85,67 @@ header{
     background: #fff;
     color: #162938;
 }
+.title{
+    width: 100%;
+}
+.title img{
+    width: 100%;
+}
+.container3{
+    margin-top: 2em;
+    text-align: center;
+    margin-bottom: 2em;
+  }
+  
+.footers{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-inline: 1rem;
+    background-color: rgb(0, 0, 0);
+    font-size: 1rem;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap:wrap;
+  }
+  .footers a{
+   
+    /* margin-left: 60px; */
+    padding: 5px;
+    color: rgb(255, 255, 255);
+    text-align: justify;
+    letter-spacing: 3px;
+    border: none;
+  }
+  .footers a:hover{
+    color: red;
+  }
+  
+  .container3 img{
+    margin-top: 1em;
+   width: 120px;
+   height:120px;
+   border-radius: 60px;
+  }
+  .main_Container p{
+    position: relative;
+    /* margin-left: ; */
+  }
+  .main_Container .titlehead h2{
+ width: 55px;
+ color: rgb(189, 7, 7);     
+  }
+  #titlehead {
+    margin-top: 10  %;
+    margin-left: 89%;
+  }
+  
+
+#titlehead span{
+    font-size: larger;
+    color: #f7f7f7;
+    width: 40px;
+   
+    
+  }
+ 

@@ -35,7 +35,7 @@
     margin-bottom: 30px;
   }
   
-  .seat{
+  .seat {
     background-color: #444451;
     height: 20px;
     width: 18px;
@@ -113,16 +113,3 @@
   p.text span {
     color: #8fbbbd;
   }
-.bgimage{
-  background-size: cover;
-  width: 100%;
-  height: 89vh;
-}
-body{
-  background-image: url("./images/cinema.jpg");
-  background-repeat:no-repeat;
-  background-size: cover; 
-}
-
-
-
