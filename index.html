@@ -11,7 +11,9 @@ require "db_conn.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
-    <!-- <link rel="stylesheet" href="animate.css" /> -->
+    <!--<link rel="stylesheet" href="animate.css" />-->
+    <link rel="stylesheet" href="home.css" />
+
 
     <!-- GOOGLE Font style link -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"rel="stylesheet"/>
@@ -21,17 +23,31 @@ require "db_conn.php";
   </head>
 
   <body>
-         <!-- This is name off cinema -->
+    <header>
+      <h4 class="logo">PVR CINEMA</h4>
+      <nav class="navigation">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Booking</a>
+        <a href="#">Contact</a>
+        <button class="btnLogin-popup">LOGIN</button> 
+      </nav>
+    </header>
+
     <div id="title">
-   <img  width="100%" src="images/netflix.jpg" alt="">
+   <img  width="100%" src="images/movie.jpg" alt="">
+
+   
+   <section class="container3">
+    <h2 style="font-size:large;letter-spacing: 1px; animation: none; color: red;" >
+    Website Designer
+   </h2>
+   <img  class="founder" src="images/Founder.jpg" alt="" />
+   <h3 style="color: #fff; animation: none; font-size:medium;letter-spacing: 0px; font-weight: 100;">Priyanka & Vishakha </h3>
   
-    <!-- <br> -->
-    <!-- Animate hedding h2-->
-    <h2 id="titleline">WELCOME TO PVR CINEMA</h2>
-  </div>
-    <h6 class="show show1">Now Streaming....</h6>
+  </section>
   
-    <footer class="footers">
+     <footer class="footers">
       <a href="#">About the project</a>
       <a href="#"> Contact Us</a>
       <a href="PrivacyPolicy.html">Privacy Policy</a>
