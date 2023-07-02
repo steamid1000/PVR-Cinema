@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="index.css" /> -->
+    <link rel="stylesheet" href="animate.css" />
+    <!-- <link rel="stylesheet" href="home.css" /> -->
+
+    <!-- GOOGLE Font style link -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"rel="stylesheet"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Concert+One&display=swap"rel="stylesheet"/>
+    
     <style>
         *{
             margin: 0;
             padding: 0;
+             /* overflow-x:hidden ; */
+        }
+        .main_Container{
+            /* overflow-x: hidden; */
+            width: 100%;
         }
         .navigation{
             display: flex;
@@ -23,7 +37,7 @@
 
         }
         .pvr{
-            margin-left: 75%;
+            margin-left: 50%;
             margin-top: 20%;
         }
         .pvr p{
@@ -41,26 +55,91 @@
         .main_Container img{
             height: 50%;
         }
+        .movie_icons{
+            display: flex;
+            top: -25%;
+
+        }
+        .container{
+            top: -30%;
+        }
+        .main_Container nav{
+            width: 40%;
+            border: 1px solid green;
+        }
+        .movie_icons{
+            margin-top: 104px;
+            width:80%;
+            height: 670px;
+        }
+        .box1{
+            margin-left: 5%;
+        }
+        .box1,.box2,.box3{
+            margin-right: 8%;
+            width: 500px;
+
+        }
+        .showing{
+            top: -700px;
+            width: 80%;
+            height:100px ;
+            border: 1px solid red;
+        }
+
+
     </style>
+
     <title>Document</title>
 </head>
 <body>
     <div class="main_Container">
             <div class="first">
-                <img  width="100%" src="images/movie.jpg" alt="">
-                <nav class="navigation">
-                    <a href="#">Home</a>
+                 <img  width="100%" src="images/movie.jpg" alt="">
+                 <nav class="navigation">
+                     <a href="#">Home</a>
                     <a href="#">About</a>
                     <a href="#">Booking</a>
                     <a href="#">Contact</a>
-                    <!-- <button class="btnLogin-popup">LOGIN</button>  -->
-                  </nav>
-                </header>
+                     
+                </nav>
+                  </header>
+            </div>
             </div>
             <div class="pvr">
-                <p>pvr</p>
-                <p id="aboutthat"> best stories required <br>best environment!! </p>
+                <h4><p>PVR Cinemas</p></h4>
+                <p id="about that"> best stories required <br>best environment!! </p>
             </div>
-    </div>
+       
+             <hr id="line"><br>
+            <h6>Streaming Now....</h6><br>
+      <!-- First container of IMAGES -->
+ 
+        <div class="container">  
+            <br> 
+            <div class="showing"> 
+                <p>Currently Showing</p>
+            </div>
+            <div class="movie_icons">  
+                <div class="box1">
+                    <img src="./images/Adhipurush.jpg" alt="">
+                    <p> Adhipurush</p>
+                </div>   
+                <div class="box2">
+                    <img src="./images/Adhipurush.jpg" alt="">
+                    <p> Adhipurush</p>
+                </div>  
+                <div class="box3">
+                    <img src="./images/Adhipurush.jpg" alt="">
+                    <p> Adhipurush</p>
+                </div>    
+           
+          
+         
+     
+</div>
+  <br />
+  <br />
+
 </body>
 </html>

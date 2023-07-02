@@ -20,6 +20,7 @@ a:link{
  height: auto;
 }
 .covers{
+  top: 10%;
   padding: 3em;
   padding-top: 0em;
   padding-bottom: 1em;
