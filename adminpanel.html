@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Admin Dashboard</title>
+  <style>
+    /* Reset some default styles */
+body, h1, h2, h3, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+nav {
+  background-color: #777;
+  color: #fff;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background-color: #eee;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+.sidebar {
+  width: 200px;
+  background-color: #f2f2f2;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.sidebar li.active {
+  background-color: #ddd;
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Movie Admin Dashboard</h1>
+  </header>
+  
+  <nav>
+    <div class="sidebar">
+    <ul>
+     <li class="active"><a href="#">Dashboard</a></li>
+      <li><a href="#">Movies</a></li>
+      <li><a href="#">Actors</a></li>
+      <li><a href="#">Directors</a></li>
+      <li><a href="#">Genres</a></li>
+    </ul>
+    </div>
+  </nav>
+  
+  <main>
+    <h2>Dashboard</h2>
+    <div class="dashboard-container">
+      <div class="card">
+        <h3>Total Movies</h3>
+        <p>500</p>
+      </div>
+      <div class="card">
+        <h3>Total Actors</h3>
+        <p>2500</p>
+      </div>
+      <div class="card">
+        <h3>Total Directors</h3>
+        <p>100</p>
+      </div>
+      <div class="card">
+        <h3>Total Genres</h3>
+        <p>20</p>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 Movie Admin Dashboard. All rights reserved.</p>
+  </footer>
+</body>
+</html>
