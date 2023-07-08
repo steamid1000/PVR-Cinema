@@ -14,12 +14,8 @@
         $conn->query($query);
     }
 
-
-    function Redirect($url, $permanent = false) { //Redirects to given page
-        header('Location: ' . $url, true, $permanent ? 301 : 302);
-        exit();
-        }
-       Redirect('../payment.html', false);
+    Redirect('../payment.html', false);
+    
 ?>
 
 
