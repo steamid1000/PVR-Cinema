@@ -107,3 +107,10 @@ Btn.addEventListener('click', (e) => {
 
 updateSelectedCount();
 taken();
+
+
+//seat Booking warning message
+
+document.getElementById("book_now").addEventListener("click", function() {
+  document.getElementById("warningMessage").classList.remove("hidden");
+});
