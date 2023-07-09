@@ -1,59 +1,48 @@
-<div class="panel-body">
-	<div class="panel panel-success lobipanel-basic">
-		<div class="panel-heading">
-			<div class="panel-title">
-				<h4>Nested Panel title</h4>
-			</div>
-		</div>
-		<div class="panel-body">
-			Panel 1
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-6">
-			<div class="panel panel-warning lobipanel-basic">
-				<div class="panel-heading">
-					<div class="panel-title">
-						<h4>Panel title</h4>
-					</div>
-				</div>
-				<div class="panel-body">
-					Panel 2
-				</div>
-			</div>
-			<div class="panel panel-dark lobipanel-basic">
-				<div class="panel-heading">
-					<div class="panel-title">
-						<h4>Panel title</h4>
-					</div>
-				</div>
-				<div class="panel-body">
-					Panel 3
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-6">
-			<div class="panel panel-pink lobipanel-basic">
-				<div class="panel-heading">
-					<div class="panel-title">
-						<h4>Panel title</h4>
-					</div>
-				</div>
-				<div class="panel-body">
-					Panel 4
-				</div>
-			</div>
-			<div class="panel panel-danger lobipanel-basic">
-				<div class="panel-heading">
-					<div class="panel-title">
-						<h4>Panel title</h4>
-					</div>
-				</div>
-				<div class="panel-body">
-					Panel 5
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+</head>
+<style>
+.container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
+h2 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="submit"] {
+  margin-top: 5px;
+  padding: 5px;
+}
+
+</style>
+<body>
+  <div class="container">
+    <h2>Admin Panel</h2>
+    <form method="post" action="admin.php">
+      <label for="movie">Movie:</label>
+      <input type="text" id="movie" name="movie" required>
+      <br>
+      <label for="seats">Available Seats:</label>
+      <input type="number" id="seats" name="seats" required>
+      <br>
+      <input type="submit" value="Add Movie">
+    </form>
+  </div>
+</body>
+</html>
