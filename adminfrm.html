@@ -4,8 +4,11 @@
   <title>Admin Form</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      font-family:Georgia, 'Times New Roman', Times, serif;
+      background-image: url("./images/admin.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
       margin: 0;
       padding: 0;
     }
@@ -17,6 +20,8 @@
       padding: 20px;
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background: transparent;
+      color:white;
     }
     
     .form-group {
@@ -52,7 +57,7 @@
     
     .form-group button {
       padding: 10px 20px;
-      background-color: #4caf50;
+      background-color:red;
       color: #fff;
       border: none;
       border-radius: 5px;
@@ -64,37 +69,42 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <h2 style="text-align: center;">Admin Form</h2>
+    <h1 style="text-align: center; color: black;">Admin Form</h1>
     <form>
       <div class="form-group">
-        <label for="title">Title:</label>
+        <label for="title"> Movie Title:</label>
         <input type="text" id="title" name="title" required>
       </div>
       <div class="form-group">
-        <label for="director">Director:</label>
-        <input type="text" id="director" name="director" required>
+        <label for="status">status:</label>
+        <input type="text" id="status" name="status" required>
       </div>
       <div class="form-group">
-        <label for="genre">Genre:</label>
-        <select id="genre" name="genre" required>
-          <option value="">Select Genre</option>
-          <option value="action">Action</option>
-          <option value="comedy">Comedy</option>
-          <option value="drama">Drama</option>
-          <option value="fantasy">Fantasy</option>
-          <option value="horror">Horror</option>
-          <option value="sci-fi">Sci-Fi</option>
-        </select>
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required>
       </div>
       <div class="form-group">
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" rows="5" required></textarea>
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" required>
       </div>
       <div class="form-group">
-        <label for="release_date">Release Date:</label>
-        <input type="date" id="release_date" name="release_date" required>
+        <label for="thumbnail">Movie Thumbnail:</label>
+        <input type="text" id="thumbnail" name="thumbnail" required>
+      </div>
+      <div class="form-group">
+        <label for="backimage">Movie BackImage:</label>
+        <input type="text" id="backimage" name="backimage" required>
+      </div>
+      <div class="form-group">
+        <label for="description"> Movie Description:</label>
+        <textarea id="description" name="description" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="Ticket_price">Ticket Price:</label>
+        <input type="text" id="Ticket_price" name="Ticket_price" required>
       </div>
       <div class="form-group">
         <label for="Book_seats">Booked Seats</label>
