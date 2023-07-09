@@ -327,17 +327,17 @@ $result = $conn->query($query);
             <h2> Currently Streaming... </h2>
         </div>
 
-        <form action="" method="get">
+        <form action="moviepage.php" method="pos">
         <div class="movie_Container">
             <div class="container_Group">
                 <?php
                     while($resultarr = mysqli_fetch_array($result)) {
                         ?>
-                        <a href="<?php echo $resultarr['movie_id'];?>">
                         <div class="box">
-                        <img src="images/<?php echo $resultarr['movie_thumbnail'];?>" alt="<?php echo $resultarr['movie_name'];?>">
+                            <a href="moviepage.php?<?php echo "movieID=".$resultarr['movie_id'];?>">
+                            <img src="images/<?php echo $resultarr['movie_thumbnail'];?>" alt="<?php echo $resultarr['movie_name'];?>">
                         <br>
-                        <span><?php echo $resultarr['movie_name']; ?></span>
+                        <span><?php echo $resultarr['movie_name'];?></span>
                         <br>
                     </div> 
                 </a>

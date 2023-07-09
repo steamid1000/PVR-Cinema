@@ -1,7 +1,7 @@
 <?php
 session_start();
 // $_SESSION["Mname"] = "Movie Page";
-$movieId = $_SESSION['movieId'];
+$movieId = $_GET['movieID'];
 echo $movieId;
 // echo session_save_path();
 
