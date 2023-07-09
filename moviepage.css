@@ -336,4 +336,108 @@ button.mfp-close{
 
 
 
+/* Footer */
+
+.footer a{
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+.footer p{
+  margin-bottom: 1.5rem;
+}
+.footer .footer-cols{
+  display: grid;
+  margin-left: 10%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.2rem;
+}
+.footer li{
+  list-style: none;
+  line-height: 2rem;
+}
+.language{ 
+  padding-top: 50px;
+ 
+  width: 4rem;;
+}
+
+
+.language select{
+  width: 119px;
+  padding: 12px;
+  text-align: center;
+   
+  color: var(--light-color);
+  /* background: transparent; */
+}
+.PVR-india{
+  padding-top: 2rem;
+  font-weight: 100;
+ 
+
+}
+.PVR-india p{
+  font-size: 13px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: large;
+}.address{
+  /* background: red;
+   */
+   color: white;
+   line-height: 28px;
+}
+.ftcontainer{
+  width: 100%;
+  height: 300px;
+}
+.footer{
+  display: flex;
+  
+  width: 100%;
+  height: 100%;
+}
+.callme{
+  font-size: 18px;
+  line-height: 27px;
+}
+.footer-cols{
+  /* border: 1px solid red; */
+  position: relative;
+  /* margin-right: ; */
+  text-align: center;
+}
+.footer-cols ul li a{
+  text-decoration: none;
+}
+.footer-colss{
+  position: relative;
+  margin-left: -200px;
+  margin-right: 50px;
+  text-align: center;
+  
+}
+.footer-colss ul li a{
+  text-decoration: none;
+}
+.queries{
+    
+  position: relative;
+  
+}
+.queries span{
+  position: relative;
+  margin-bottom: 50px;
+}
+.first{
+  margin-top: -90px;
+  position: relative;
+}
+.PVR-india{
+  display: block;
+  position: relative;
+  margin-top: -100px;
+  
+}
+
 
