@@ -32,18 +32,16 @@ $fetchedArray = mysqli_fetch_array($result);
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"> </script>
 
-
-
 </head>
 
 <body>
     <div class="container">
-        <img class="spdimg" src="images/<?php echo $fetchedArray[1]; ?>" alt="Error">
+        <img class="spdimg" src="MovieImages/<?php echo $fetchedArray[1]; ?>" alt="Error">
         <div class=" heading">
             <h1>
-                <?php echo $fetchedArray[1]; ?>
+                <?php echo $fetchedArray[1];?>
             </h1>
-            <h2> </h2>
+            <h2></h2>
 
             <!-- <a href="#videostory" class="button more" id="videolink">Watch Trealer <i style="margin-left: 0em;" class="fa fa-play-circle" aria-hidden="true">&nbsp;</i></a>    
         <div id="videostory" class="mfp-hide"style=" text-align: center;  margin: 0 auto; border-style: none;">
@@ -55,13 +53,13 @@ $fetchedArray = mysqli_fetch_array($result);
 
     </div>
     <div class="container">
-
+            
     </div>
     <div class="aboutmovie">
         <h5 style="font-family:cursive; letter-spacing: 1mm; color: rgba(211, 209, 209, 0.562);"> About the movie:-</h5>
         <em
             style="color: rgba(255, 255, 255, 0.842);font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-            <?php echo $fetchedArray[3]; ?>
+            <?php echo $fetchedArray[3];?>
         </em>
     </div>
     <h3 style="font-family:monospace; letter-spacing: 1mm; color: rgba(211, 209, 209, 0.562);">Cast:-</h3>
@@ -78,7 +76,7 @@ $fetchedArray = mysqli_fetch_array($result);
             <a href="https://www.instagram.com/shridhar2799/"><img class="footer2" src="images/insta.png" alt=""></a>
             <a href="https://twitter.com/Yeashpatil"> <img class="footer2" src="images/twitter.png" alt=""></a>
             <a href="https://www.youtube.com/channel/UChUiMKUqB5qLfsJ-i1paVMg"><img class="footer2"
-                    src="images/youtube.png" alt=""></a>
+                    src="" alt="youtube"></a>
         </div>
 
     </footer>

@@ -6,7 +6,7 @@
   <style>
     body {
       font-family: Georgia, 'Times New Roman', Times, serif;
-      background-image: url("../images/admin.jpg");
+      background-image: url("../image/admin.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -74,15 +74,11 @@
 <body>
   <div class="container">
     <h1 style="text-align: center;">Movie Details</h1>
-    <form action="testupload.php" enctype="multipart/form-data" method="post">
+    <form action="testupload.php" method="post" enctype="multipart/form-data" >
       <div class="form-group">
         <label for="title"> Movie Title:</label>
         <input type="text" id="title" name="title" required>
       </div>
-      <!-- <div class="form-group">
-        <label for="status">status:</label>
-        <input type="text" id="status" name="status" required>
-      </div> -->
       <div class="form-group">
         <label for="description"> Movie Description:</label>
         <textarea id="description" name="description" rows="3" required></textarea>
@@ -116,43 +112,3 @@
 </body>
 
 </html>
-
-<?php
-if ($_SERVER["REQUEST_METHOD"]== "POST") {
-  $title = $_POST['title'];
-  $description = $_POST['description'];
-  $start_date = $_POST['start_date'];
-  $end_date = $_POST['end_date'];
-  $price = $_POST['Ticket_price'];
-
-  $movie_thumbnail = $_POST['thumbnail']; // This require perfect handling
-  $movie_backimage = $_POST['backimage'];
-
-  print_r($_FILES);
-  $query = "INSERT INTO `movies` ('movie_name','status','start_date','end_date') VALUES('$title','active','$start_date','$end_date')";
-  if($conn->query($query)){
-    $movie_id = $conn->query("SELECT movie_id FROM `movies` WHERE movie_name='$title'");
-    var_dump($movie_id);
-
-    
-  }
-
-
-  // echo $_FILES['thumbnail'] . "<br>";
-  $target_dir = "../images/";
-  $target_file = $target_dir . basename($_FILES["thumbnail"]["kantaras"]);
-  $uploadOk = 1;
-  $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-  // Check if image file is a actual image or fake image
- 
-    $check = getimagesize($_FILES["thumbnail"]["temp_name"]);
-    if ($check !== false) {
-      echo "File is an image - " . $check["mime"] . ".";
-      $uploadOk = 1;
-    } else {
-      echo "File is not an image.";
-      $uploadOk = 0;
-    }
-  }
-
-?>
