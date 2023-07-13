@@ -80,8 +80,8 @@
         <input type="text" id="title" name="title" required>
       </div>
       <div class="form-group">
-        <label for="description"> Movie Description:</label>
-        <textarea id="description" name="description" rows="3" required></textarea>
+        <label for="description"> Movie Trailer Link:</label>
+        <textarea id="description" name="description" rows="1" required></textarea>
       </div>
       <div class="form-group">
         <label for="start_date">Start Date:</label>
@@ -95,10 +95,10 @@
         <label for="thumbnail">Movie Thumbnail:</label>
         <input type="file" id="thumbnail" name="thumbnail" required>
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="backimage">Movie BackImage:</label>
         <input type="file" id="backimage" name="backimage" required>
-      </div>
+      </div> -->
 
       <div class="form-group">
         <label for="Ticket_price">Ticket Price:</label>

@@ -15,11 +15,15 @@ $result = $conn->query($query);
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
    <script src="https://kit.fontawesome.com/14850a9668.js" crossorigin="anonymous"></script>
-
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"></script>
    <link rel="stylesheet" href="index.css">
+   
+   <!-- For pop up -->
+   <link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen"/>
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+   <script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 
 
    <title>PVR Cinema</title>
@@ -57,7 +61,7 @@ $result = $conn->query($query);
 
       <div class="currentlyShowing">
          <p id="mytitle">Currently Showing</p>
-
+         <a href="https://www.youtube.com/embed/Hi4ktzK9g0I">WOWOWo</a>
       </div>
       <!-- this is the card section got from getbootstrap.com -->
       <div class="middlecontainer">
@@ -68,14 +72,18 @@ $result = $conn->query($query);
             <?php
             while ($resultarr = mysqli_fetch_array($result)) {
                ?>
-               <a href="moviepage.php?<?php echo "movieID=" . $resultarr['movie_id']; ?>">
-                  <div class="card" style="max-width: 18rem;">
-                     <img src="MovieImages/<?php echo $resultarr['movie_thumbnail']; ?>"
-                        alt="<?php echo $resultarr['movie_name']; ?>">
-                     <button type="button" id="fifth" class="btn btn-primary">Book Tickets</button>
-                     <button type="button" id="sixth" class="btn btn-primary">Play Trailer</button>
+               <div class="card" style="max-width: 18rem;">
+                  <img src="MovieImages/<?php echo $resultarr['movie_thumbnail']; ?>"
+                     alt="<?php echo $resultarr['movie_name']; ?>">
+                  <button type="button" id="fifth" class="btn btn-primary">Book Tickets</button>
+                  <button type="button" href="#videostory" id="sixth" class="btn btn-primary">Play Trailer</button>
+                  <div id="videostory" class="mfp-hide" style=" text-align: center;  margin: 0 auto; border-style: none;">
+                     <iframe class="vdo" width="853" height="480" src="https://www.youtube.com/embed/Hi4ktzK9g0I"
+                        title="YouTube video player" frameborder="3"
+                        allow=" autoplay;  accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                   </div>
-               </a>
+               </div>
                <?php
             }
             ?>
