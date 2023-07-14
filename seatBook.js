@@ -8,9 +8,10 @@ const Btn = document.getElementById('Confrm');
 
 populateUI();
 
-let ticketPrice = +movieSelect.value;
+let ticketPrice = +movieSelect.value;  
 var Sold = arr; //^  array of the seats which have been sold already
 var Selected_seats;//* This will the seats which are selected
+
 
 //? update total and count
 function updateSelectedCount() {
@@ -91,15 +92,13 @@ async function Number_of_selected () {
   }
   
     document.cookie = "Seats=" + get_arr;
-    document.cookie="price="+ total.innerText;
+
 }
 
 
 Btn.addEventListener('click', (e) => {
     Number_of_selected();
-
-    
-     fetch('db_scripts/send_seats.php');
+    // fetch('db_scripts/send_seats.php');
     window.location.href = 'payment.html';
 });
 
@@ -107,10 +106,3 @@ Btn.addEventListener('click', (e) => {
 
 updateSelectedCount();
 taken();
-
-
-//seat Booking warning message
-
-document.getElementById("book_now").addEventListener("click", function() {
-  document.getElementById("warningMessage").classList.remove("hidden");
-});

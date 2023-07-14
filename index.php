@@ -1,7 +1,7 @@
 <?php
 
 require_once 'db_scripts/login.php';
-$query = "SELECT movies.movie_name, movies.movie_id, movie_info.movie_thumbnail FROM movies INNER JOIN movie_info ON movies.movie_id=movie_info.movie_id;";
+$query = "SELECT movies.status, movies.movie_name, movies.movie_id, movie_info.movie_thumbnail,movie_info.movie_description FROM movies INNER JOIN movie_info ON movies.movie_id=movie_info.movie_id;";
 $result = $conn->query($query);
 
 ?>
@@ -71,20 +71,17 @@ $result = $conn->query($query);
             <!-- first div -->
             <?php
             while ($resultarr = mysqli_fetch_array($result)) {
+               if ($resultarr['status'] == 'Active') {
+               
                ?>
                <div class="card" style="max-width: 18rem;">
                   <img src="MovieImages/<?php echo $resultarr['movie_thumbnail']; ?>"
                      alt="<?php echo $resultarr['movie_name']; ?>">
-                  <button type="button" id="fifth" class="btn btn-primary">Book Tickets</button>
-                  <button type="button" href="#videostory" id="sixth" class="btn btn-primary">Play Trailer</button>
-                  <div id="videostory" class="mfp-hide" style=" text-align: center;  margin: 0 auto; border-style: none;">
-                     <iframe class="vdo" width="853" height="480" src="https://www.youtube.com/embed/Hi4ktzK9g0I"
-                        title="YouTube video player" frameborder="3"
-                        allow=" autoplay;  accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                  </div>
+                  <button type="button" id="fifth" class="btn btn-primary"><a href="userfrm.php?movieID=<?php echo $resultarr['movie_id'];?>" style="text-decoration:none;color:white;">Book Tickets</a></button>
+                  <button type="button" id="sixth" class="btn btn-primary"><a class="iframe" style="text-decoration:none;color:white;" href="<?php echo $resultarr['movie_description'];?>">Play Trailer</a></button>
                </div>
                <?php
+               }
             }
             ?>
             <!-- first div ends here -->

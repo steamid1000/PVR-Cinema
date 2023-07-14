@@ -1,27 +1,31 @@
 <?php
-    require_once 'login.php';
-   $tablename =["bhim1","bhim2","bhim3","kings1","kings2","kings3"];
-   $selected_table=$_COOKIE['table'];
-   $t=$tablename[$selected_table];
+require_once 'login.php';
+$book_date = $_SESSION['date'];
+$movieID = $_SESSION['movieID'];
 
-    $query = "SELECT Seat_no FROM $t WHERE IsTaken>0";
-    $Sold_seats = $conn->query($query);
+$query = "SELECT `booked_seats` FROM `bookings` where dates='$book_date' and movie_id='$movieID';"; // add booking date
+$Sold_seats = $conn->query($query);
 
-    if (!$Sold_seats) die("Failed to fetch");
-    // else echo("Done it<br>");
-    
+$SeatArr = mysqli_fetch_all($Sold_seats);
 
-    $data = array(); // ^Gets the Seat number which has been occupied
+if (!$Sold_seats)
+    die("Failed to fetch");
 
-    if (mysqli_num_rows($Sold_seats) > 0) {
-        
-        while ($row = mysqli_fetch_array($Sold_seats)) {
-            
-            $data[] = (int) ($row['Seat_no']);
-        }
-    }
+$data = array(); // Gets the Seat number which has been occupied
+$elem = "";
 
-    
+foreach ($SeatArr as $item) {
+    $elem .= implode($item);
+}
 
-    mysqli_close($conn);
+
+$str =  str_replace( array( '\'', '"',
+',' , ';', '<', '>' ,']['), ',', $elem);
+
+$finalOccupiedSeats = str_ireplace('""','',$str);
+
+
+$jsonStringAgain = $finalOccupiedSeats;
+
+
 ?>

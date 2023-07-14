@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'db_scripts/login.php';
 ?>
 <html>
   <head>
@@ -60,13 +61,13 @@ session_start();
       </div>
         <h1> Payment Successful</h1>
         <h2 class="name">Your Name :-</h2>
-        <h2 class="name"> <?php echo $_COOKIE['Name'] . "<br>"?></h2>
+        <h2 class="name"> <?php echo $_SESSION['name'] . "<br>"?></h2>
         <br>
         <h2 class="Email">Your Email :-</h3>
-        <h2 class="name"> <?php echo $_COOKIE['Email'] . "<br>"?></h2>
+        <h2 class="name"> <?php echo $_SESSION['email'] . "<br>"?></h2>
         <br>
         <h2 class="Seat"> movie name :-</h2>
-        <h2 class="name"> <?php   echo $_COOKIE["moviename"] . "<br>"?></h2>
+        <h2 class="name"> <?php   echo $_SESSION["moviename"] . "<br>"?></h2>
         <br>
         <h2 class="Seat">Your Seats No :-</h2>
         <h2 class="name"> <?php echo $_COOKIE['Seats'] . "<br>"?></h2>
@@ -78,9 +79,30 @@ session_start();
         <br>
         
         <p>Your Ticket Recipt will sent on Email Shortly.<br/>thanks for Boocking Ticket.</p>
-      <a href="index.html"><button class="homepage">Back To Homepage</button></a>
+      <a href="index.php"><button class="homepage">Back To Homepage</button></a>
     </div>
     </body>
 </html>
+
+<?php
+
+  $name = $_SESSION['name'];
+  $booked_seats = $_COOKIE['Seats'];
+  $email = $_SESSION['email'];
+  $age = $_SESSION['age'];
+  $gender = $_SESSION['gender'];
+  $book_date = $_SESSION['date'];
+  $modify = '['.$booked_seats.']';
+  $amount = $_COOKIE['price'];
+  $movieID = $_SESSION['movieID'];
+
+
+  $query = "INSERT INTO `bookings`(`movie_id`, `dates`, `booked_seats`, `name`, `email`, `age`, `gender`,`amount`) VALUES ('$movieID','$book_date','$modify','$name','$email','$age','$gender','$amount')";
+
+  if ($conn->query($query)) {
+    echo "<h1 style='color:Blue;'>Seats Booked</h1>";
+  }
+
+?>
  
  
