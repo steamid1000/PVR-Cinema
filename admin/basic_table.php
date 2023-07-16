@@ -47,11 +47,11 @@
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="../img/logo.png" width="20px" alt="homepage" />
+                            <img src="../MovieImages/logo.png" width="20px" alt="homepage" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <span class="logo-text" style="color:black;font-size:2.1rem;">BusX
+                        <span class="logo-text" style="color:black;font-size:2.1rem;">PVR Cinema
                         </span>
                     </a>
                     <!-- ============================================================== -->
@@ -78,7 +78,7 @@
                     <!-- ============================================================== -->
                     <ul class="navbar-nav ms-auto d-flex align-items-center">
 
-                        <!-- ============================================================== -->z
+                        <!-- ============================================================== -->
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
@@ -182,7 +182,7 @@
                                             <th class="border-top-0">Name</th>
                                             <th class="border-top-0">Email</th>
                                             <th class="border-top-0">Age</th>
-                                            <th class="border-top-0">Routes</th>
+                                            <th class="border-top-0">Gender</th>
                                             <th class="border-top-0">Dates (Y/M/D)</th>
                                         </tr>
                                     </thead>
@@ -191,51 +191,47 @@
                                         require "../db_scripts/login.php";
                                         if (isset($_GET['name_query'])) {
 
-                                        $k = $_GET['name_query'];
-                                        $k[0] = '_'; // changing the first character of the name string
-                                        $all_tables = mysqli_query($conn, "SHOW TABLES");
-                                        // echo var_dump($all_tables);
-                                        while ($table_name = mysqli_fetch_array($all_tables)) {
-                                            // * Removing Date and Route from the table name
-                                        
-
-                                            
-                                        
-                                            //^ Later Chamge the actual values of the table names and the forms too so we dont have to do this
-                                           
-
-                                            if ($sql = $conn->query("SELECT *
-                        FROM $table_name[0]
-                        WHERE name LIKE '$k%'")) {
-    while ($rows = mysqli_fetch_array($sql)) {
-        ?>
-        <tr>
-            <td>
-                <?php echo $rows['Name']; ?>
-            </td>
-            <td>
-                <?php echo $rows['Email']; ?>
-            </td>
-            <td>
-                <?php echo $rows['Age']; ?>
-            </td>
-            <td>
-                <?php echo $rows['Route'] ?>
-            </td>
-            <td>
-                <?php echo date('d-m-y', strtotime($rows['Date'])); ?>
-            </td>
-        </tr>
-        <?php
-    }
-} else {
-    ?>
-    <td colspan="4">The Entered Name Does Not Exist in the Database</td>
-    <?php
-}
+                                            $k = $_GET['name_query'];
+                                            $k[0] = '_'; // changing the first character of the name string
+                                            $bookings = mysqli_query($conn, "SELECT * from `bookings`");
+                                            // echo var_dump($all_tables);
+                                            while ($table_name = mysqli_fetch_assoc($bookings)) {
+                                                $movieId = $table_name['movie_id'];
+                                                if (
+                                                    $sql = $conn->query("SELECT *
+                        FROM `bookings`
+                        WHERE `name` LIKE '$k%'")
+                                                ) {
+                                                    
+                                                    while ($rows = mysqli_fetch_assoc($sql)) {
+                                                        ?>
+                                                        <tr>
+                                                            <td>
+                                                                <?php echo $rows['name']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $rows['email']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $rows['age']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $rows['gender'] ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo date('d-m-y', strtotime($rows['dates'])); ?>
+                                                            </td>
+                                                        </tr>
+                                                        <?php
+                                                    }
+                                                } else {
+                                                    ?>
+                                        <td colspan="4">The Entered Name Does Not Exist in the Database</td>
+                                        <?php
+                                                }
 
 
-                                        }
+                                            }
                                         }
                                         ?>
                                     </tbody>

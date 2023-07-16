@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         Redirect('adminpanel.html',true); // might change later to dashboard.php
     }
     else {
-        Redirect('adminfrm.php',true);
+        Redirect('admin.php',true);
     }
 
     

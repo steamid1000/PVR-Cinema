@@ -1,4 +1,5 @@
 <?php
+require_once 'db_scripts/viewcount.php';
 require_once 'db_scripts/login.php';
 $query = "SELECT movies.movie_name, movies.movie_id, movie_info.movie_thumbnail FROM movies INNER JOIN movie_info ON movies.movie_id=movie_info.movie_id;";
 $result = $conn->query($query);

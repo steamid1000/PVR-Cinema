@@ -1,13 +1,16 @@
 <?php
 
-require '../db_scripts/view_count.php';
+require '../db_scripts/getviewcount.php';
+require_once '../db_scripts/login.php';
 require '../db_scripts/earnings.php';
+
 
 session_start();
 
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
-    header("location: ../admin_login.php");
-    exit;
+if (!isset($_SESSION['username'])) {
+    session_destroy();
+    Redirect('login.php',true);
+    // exit;
 }
 
 ?>
@@ -25,7 +28,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
     <meta name="description"
         content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>BusX Admin Panel</title>
+    <title>Movie Admin Panel</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
     <!-- <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png"> -->
@@ -40,12 +43,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin1" data-sidebartype="full"
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <header class="topbar" data-navbarbg="skin5">
+        <header class="topbar" data-navbarbg="skin1">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" data-logobg="skin6">
                     <!-- ============================================================== -->
@@ -55,13 +58,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="../img/logo.png" width="20px" alt="homepage" />
+                            <img src="../MovieImages/logo.png" width="30px" alt="homepage" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <em style="color:black; font-size:2.1rem; ">BusX</em>
+                            <em style="color:black; font-size:1.8rem; ">PVR Cinema</em>
                         </span>
                     </a>
 
@@ -69,7 +72,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
                         href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                 </div>
 
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin2">
                     <ul class="navbar-nav ms-auto d-flex align-items-center">
 
                         <li>
@@ -112,25 +115,25 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="../db_scripts/AutorunStatusExpiredScript.php" aria-expanded="false">
-                                <i class="bi bi-ticket-detailed"></i>
-                                <span class="hide-menu" style="color: red;">Make Ticket Expire </span>
+                                href="adminfrm.php" aria-expanded="false">
+                                <i class="fa fa-film" aria-hidden="true"></i>
+                                <span class="hide-menu">Add Movies</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        <!-- <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="../db_scripts/refund_table.php" aria-expanded="false">
                                 <i class="bi bi-ticket-detailed"></i>
                                 <span class="hide-menu" style="color: red;"> Refund Users </span>
                             </a>
-                        </li>
-                        <li class="sidebar-item">
+                        </li> -->
+                        <!-- <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="../db_scripts/refund_records.php" aria-expanded="false">
                                 <i class="bi bi-ticket-detailed"></i>
                                 <span class="hide-menu" style="color: red;"> Refund Records </span>
                             </a>
-                        </li>
+                        </li> -->
 
                     </ul>
 
@@ -154,7 +157,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
                             <ol class="breadcrumb ms-auto">
                                 <li><a href="#" class="fw-normal">Dashboard</a></li>
                             </ol>
-                            <a href="../admin_login.php" //& Add another script as bridge to start and stop the sessions
+                            <a href="login.php"
                                 class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Logout</a>
                         </div>
                     </div>
@@ -165,8 +168,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
             <div class="container-fluid">
 
                 <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-12">
-                        <div class="white-box analytics-info">
+                    <!-- <div class="col-lg-4 col-md-12"> -->
+                        <!-- <div class="white-box analytics-info">
                             <h3 class="box-title">Total Seats Booked</h3>
                             <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
@@ -178,8 +181,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
                                         <?php echo $total_seats; ?>
                                     </span></li>
                             </ul>
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> -->
                     <div class="col-lg-4 col-md-12">
                         <div class="white-box analytics-info">
                             <h3 class="box-title">Total Page Views</h3>
@@ -225,16 +228,15 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
                                     <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
                                         <select name="route" id="locations"
                                         class="form-select shadow-none row border-top">
-                                            <option value=""> Choose route here</option>                                             
+                                            <option value=""> Choose Movies here</option>                                             
                                             <?php
-                                            require_once "../db_scripts/admindb.php";
-                                            $query = "select * from fares"; //fetching the available routes from the db
+                                            $query = "select * from `movies`"; //fetching the available routes from the db
                                             $result = mysqli_query($conn, $query);
                                             
                                             $route = $result->fetch_all();
                                              foreach ($route as $key => $value) {
                                             ?>   
-                                                <option value="<?php echo $value[0]; ?>"><?php echo $value[0]; ?></option>
+                                                <option value="<?php echo $value[0]; ?>"><?php echo $value[1]; ?></option>
                                                 <?php
                                             } ?>
                                         </select>
@@ -258,37 +260,30 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
                                     <tbody id="an">
                                         <?php
 
-                                        try {
-                                            require "../db_scripts/login.php";
                                             if (isset($_GET['route']) and isset($_GET['day'])) {
-                                                
-                                            $k = $_GET['route'] . $_GET['day'];
-                                            $root = $_GET['route'];
-
-                                            $table_name = str_replace('-', '', $k);
-
-
+                                            $date = $_GET['day'];
+                                            $movie = $_GET['route'];
                                             // Execute the SQL query and fetch the result  
-                                            if ($sql = $conn->query("SELECT * from $table_name WHERE Age>0")) {
+                                            if ($sql = $conn->query("SELECT * FROM `bookings` WHERE dates='$date' and movie_id=$movie;")) {
                                                 
-                                                while ($rows = mysqli_fetch_array($sql)) {
+                                                while ($rows = mysqli_fetch_assoc($sql)) {
                                                     ?>
                                                     
                                                     <tr>
                                                         <td>
-                                                            <?php echo $rows['Name']; ?>
+                                                            <?php echo $rows['name']; ?>
                                                         </td>
                                                         <td>
-                                                            <?php echo $rows['Email']; ?>
+                                                            <?php echo $rows['email']; ?>
                                                         </td>
                                                         <td>
-                                                            <?php echo $rows['Age']; ?>
+                                                            <?php echo $rows['age']; ?>
                                                         </td>
                                                         <td>
-                                                            <?php echo $rows['Gender']; ?>
+                                                            <?php echo $rows['gender']; ?>
                                                         </td>
                                                         <td>
-                                                            <?php echo $rows['Status']; ?>
+                                                            <?php echo $rows['amount']; ?>
                                                         </td>
                                                     </tr>
 
@@ -296,68 +291,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 
                                                 }
                                                 echo '<button onclick="printTable()" class="button">Print</button>';
-
-                                                
-                                                $sql2 = "SELECT COUNT(*) AS seatCount FROM $table_name WHERE IsTaken=1";
-                                                $result = mysqli_query($conn, $sql2);
-                                                if ($result) {
-                                                    // Fetch the result
-                                                    $row = mysqli_fetch_assoc($result);
-                                                    $seatCount = $row['seatCount'];
-                                            
-                                                    // Print the count of booked seats
-                                                    echo "Number of Booked Seats: " . $seatCount ." <br>";
-                                                } else {
-                                                    echo "Query error: " . mysqli_error($conn);
-                                                }
-                                                if (isset($_GET['route']) && isset($_GET['day'])) {
-                                                    $selectedRoute = $_GET['route'];
-                                                    $selectedDate = $_GET['day'];
-                                                
-                                                    $formattedDate = date("d-m-Y", strtotime($selectedDate));
-                                                  
-                                                    echo " Date: $formattedDate <br>";
-                                                    echo " Route: $selectedRoute";
-                                                }
-                                                $hn = "localhost";
-                                                $un = "root";
-                                                $pw = "";
-                                                $db = "login";
-                                                // Connect to the database
-                                                $conn2 = mysqli_connect($hn, $un, $pw, $db);
-                                                $faresQuery = "SELECT Amount FROM fares WHERE Route = '$selectedRoute'";
-                                                $faresResult = mysqli_query($conn2, $faresQuery);
-                                                if ($faresResult) {
-                                                    $faresRow = mysqli_fetch_assoc($faresResult);
-                                                    $amount = $faresRow['Amount'];
-                                                    // Calculate the total amount
-                                                    $totalAmount = $amount * $seatCount;
-                                                    // Print the total amount
-                                                    echo "<br>Total Earning Amount : -  " . $totalAmount;
-                                                } else {
-                                                    echo "Fares query error: " . mysqli_error($conn);
-                                                }
-                                            } else {
-                                                echo "Seats query error: " . mysqli_error($conn);
-                                            }    
-                                                
-
-                                                // Close the database connection
-                                                mysqli_close($conn);
-
-
                                             }
-
+                                            }
+                                        else{
                                         
+                                            echo "<h1> No Data found on the particular date</h1>";
                                         }
-
-                                        //catch exception
-                                        catch (Exception $e) {
-                                            echo "<h5 style=color:red>!! On This Date , Data is Not avaible Please chnage Date.</h5>";
-                                        }
-
-                                    
-
 
                                         ?>
                                     </tbody>

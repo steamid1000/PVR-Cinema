@@ -1,3 +1,8 @@
+<?php
+session_start();
+session_destroy();
+require_once '../db_scripts/login.php';
+?>
 
 <!DOCTYPE html>
 <html>
@@ -26,7 +31,6 @@
 <?php
 	if (isset($_POST['submit'])) {
 		session_start();
-		require_once '../db_scripts/login.php';
 		$uname = $_POST['uname'];
 		$pass = $_POST['password'];
 
@@ -35,11 +39,11 @@
 		$resultarr = mysqli_fetch_array($result);
 		if ($resultarr) {
 			$_SESSION['username'] = $uname; // stroing the username for checking for session in the admin panel
-			Redirect('adminpanel.html',true);
+			Redirect('admin.php',true);
 		}
 		else {
 			echo "<h1>Wrong Creditionals</h1>";
-			session_abort(); // end the session if the login failed
+			session_destroy(); // end the session if the login failed
 			die();
 		}
 	}
