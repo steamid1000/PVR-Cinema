@@ -1,5 +1,18 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_GET['movie_id'])) {
+    $movie_id = $_GET['movie_id'];
+
+     //General details of the movie form
+     $title = $_POST['title'];
+     $description = $_POST['description'];
+     $start_date = $_POST['start_date'];
+     $end_date = $_POST['end_date'];
+     $price = $_POST['Ticket_price'];
+    
+
+
+}
+else if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once '../db_scripts/login.php';
 
     //General details of the movie form
@@ -34,10 +47,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // $exten2 = substr($filename2, stripos($filename2, '.'));
         // $movieBack = $title.'back'.$exten2;
         // rename($folder2, '../MovieImages/' . $movieBack);
+        
 
-        $movieQuery = "INSERT INTO `movies`(`movie_name`, `status`, `start_date`, `end_date`) VALUES('$title','Active','$start_date','$end_date')";
-        echo $movieQuery;
-        mysqli_query($conn,$movieQuery);
+        //Lets check if the status of the movie will be active or upcoming based on the start_date
+        $tmpCurrentDate = strtotime(date('Y-m-d'));
+        $tmpStartDate = strtotime($start_date);
+
+        if ($tmpStartDate > $tmpCurrentDate) {
+            
+            $movieQuery = "INSERT INTO `movies`(`movie_name`, `status`, `start_date`, `end_date`) VALUES('$title','Upcoming','$start_date','$end_date')";
+            // echo $movieQuery;
+            mysqli_query($conn,$movieQuery);
+        }
+        else {
+            $movieQuery = "INSERT INTO `movies`(`movie_name`, `status`, `start_date`, `end_date`) VALUES('$title','Active','$start_date','$end_date')";
+            // echo $movieQuery;
+            mysqli_query($conn,$movieQuery);
+        }
+
 
         $movieIdQuery = "SELECT `movie_id` from `movies` where movie_name='$title'";
         $movieIdfetched = $conn->query($movieIdQuery);
@@ -47,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $movieInfoQuery ="INSERT INTO `movie_info`() VALUES('$finalMovieID','$movieThumb','$description','$price')";
         mysqli_query($conn,$movieInfoQuery); 
 
-        Redirect('admin.php',true); // might change later to dashboard.php
+        Redirect('admin.php',true);
     }
     else {
         Redirect('admin.php',true);

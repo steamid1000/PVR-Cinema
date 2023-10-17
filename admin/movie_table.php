@@ -185,6 +185,10 @@
                                             $bookings = mysqli_query($conn,"SELECT movies.status, movies.movie_name, movies.movie_id, movies.start_date,movies.end_date,movie_info.ticket_price FROM movies INNER JOIN movie_info ON movies.movie_id=movie_info.movie_id;");
 
                                                     while ($rows = mysqli_fetch_assoc($bookings)) {
+                                                        if($rows['status'] != 'Active'){
+                                                            //This will skip the current movie if the status is already expired
+                                                            continue;
+                                                        }
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -211,7 +215,7 @@
                                                                 <!-- This text can be removed -->
                                                             </td>
                                                             <td>
-                                                                <i><a href="adminfrm.php?movie_id=<?php echo $rows['movie_id'];?>"><img title="Delete" width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/filled-trash.png" alt="filled-trash"/></a></i>
+                                                                <i><a href="../db_scripts/deleteMovie.php?movie_id=<?php echo $rows['movie_id'];?>"><img title="Delete" width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/filled-trash.png" alt="filled-trash"/></a></i>
                                                                 <small><br>Delete</small>
                                                             </td>
                                                         </tr>

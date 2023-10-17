@@ -205,7 +205,7 @@ if (!isset($_SESSION['username'])) {
                                         class="form-select shadow-none row border-top">
                                             <option value=""> Choose Movies here</option>                                             
                                             <?php
-                                            $query = "select * from `movies` where status!='expired'"; //fetching the available routes from the db
+                                            $query = "select * from `movies`"; //fetching the available routes from the db
                                             $result = mysqli_query($conn, $query);
                                             
                                             $route = $result->fetch_all();
