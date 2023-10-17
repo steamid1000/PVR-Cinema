@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2023 at 04:36 AM
+-- Generation Time: Oct 17, 2023 at 06:12 AM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,7 +64,9 @@ CREATE TABLE `bookings` (
 INSERT INTO `bookings` (`booking_id`, `movie_id`, `dates`, `booked_seats`, `name`, `email`, `age`, `gender`, `amount`) VALUES
 (1, 8, '2023-07-14', '[20,1,12]', NULL, NULL, NULL, NULL, 0),
 (3, 8, '2023-07-14', '[28,29]', 'Shivrudra Patil', 'stemaid100@gmail.com', 22, 'male', 600),
-(4, 8, '2023-07-14', '[48,49]', 'Priya Patil', 'priyankapatil@gmail.com', 22, 'male', 600);
+(4, 8, '2023-07-14', '[48,49]', 'Priya Patil', 'priyankapatil@gmail.com', 22, 'male', 600),
+(5, 9, '2023-10-17', '[17,18]', 'Shivrudra', 'steamid1000@gmail.com', 20, 'Male', 1000),
+(6, 9, '2023-10-17', '[1,2]', 'shivendra', 'shivendra@gmail.com', 19, 'Male', 1000);
 
 -- --------------------------------------------------------
 
@@ -85,11 +87,8 @@ CREATE TABLE `movies` (
 --
 
 INSERT INTO `movies` (`movie_id`, `movie_name`, `status`, `start_date`, `end_date`) VALUES
-(1, 'Adipurush', 'Active', '2023-07-05', '2023-07-10'),
-(2, 'Kantara', 'Active', '2023-07-06', '2023-07-15'),
-(6, 'Housefull', 'Active', '2023-07-12', '2023-07-26'),
-(7, 'Tumbad', 'Active', '2023-07-14', '2023-07-14'),
-(8, 'Tumbhad', 'Active', '2023-07-13', '2023-07-17');
+(9, 'Finding Nemo', 'Active', '2023-10-16', '2023-10-21'),
+(10, 'Renders', 'Expired', '2023-10-10', '2023-10-15');
 
 -- --------------------------------------------------------
 
@@ -109,7 +108,7 @@ CREATE TABLE `movie_info` (
 --
 
 INSERT INTO `movie_info` (`movie_id`, `movie_thumbnail`, `movie_description`, `ticket_price`) VALUES
-(8, 'Tumbhadthumb.jpg', 'https://www.youtube.com/embed/RNEebzirc1M', 300);
+(9, 'Finding Nemothumb.jpg', 'https://www.youtube.com/watch?v=2zLkasScy7A&pp=ygUMbmVtbyB0cmFpbGVy', 500);
 
 --
 -- Indexes for dumped tables
@@ -143,13 +142,13 @@ ALTER TABLE `movie_info`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables

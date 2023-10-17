@@ -9,7 +9,10 @@ const Btn = document.getElementById('Confrm');
 populateUI();
 
 let ticketPrice = +movieSelect.value;  
-var Sold = arr; //^  array of the seats which have been sold already
+var Sold = arr;  //^  array of the seats which have been sold already
+if (Sold == NaN) {
+  Sold = [1];
+}
 var Selected_seats;//* This will the seats which are selected
 
 
@@ -21,6 +24,7 @@ function updateSelectedCount() {
 
   count.innerText = selectedSeatsCount;
   total.innerText = selectedSeatsCount * ticketPrice;
+
 }
 
 // get data from localstorage and populate ui
@@ -86,12 +90,11 @@ async function Number_of_selected () {
     
     var temp = parseInt(getArrElem[index].innerHTML);
     get_arr[index] = temp;
-
-    
-    
   }
   
     document.cookie = "Seats=" + get_arr;
+    document.cookie = "price=" + total.innerText;
+    
 
 }
 
@@ -99,6 +102,10 @@ async function Number_of_selected () {
 Btn.addEventListener('click', (e) => {
     Number_of_selected();
     // fetch('db_scripts/send_seats.php');
+    alert("Once Booked Seats cannot be cancelled!..");
+    
+    // localStorage.setItem('price', total.innerText);
+    
     window.location.href = 'payment.html';
 });
 

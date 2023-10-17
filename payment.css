@@ -9,7 +9,7 @@
 
 body{
   /* background: #2196F3; */
-  background-image:url(/images/payment.png) ;
+  background-image:url("./image/payment.png") ;
   background-repeat: no-repeat;
   background-size:cover;
   margin: 0 10px;
@@ -129,30 +129,6 @@ a{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: large;
 }
-/* Hide the default radio button */
-input[type="radio"] {
-  display: none;
-}
-
-/* Style the custom radio button */
-input[type="radio"] + label {
-  display: inline-block;
-  cursor: pointer;
-  padding-left: 25px;
-  position: relative;
-  vertical-align: middle;
-}
-
-/* Style the checked state */
-input[type="radio"]:checked + label::before {
-  content: "";
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background-color:black /* Change color as desired */
-}
-
 
 @media screen and (max-width: 420px){
   .card-grp{

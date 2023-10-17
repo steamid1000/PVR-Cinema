@@ -1,12 +1,32 @@
+<?php
+// include_once '../db_scripts/login.php';
+
+function edit($index){
+  $hn = "localhost";
+  $un = "root";
+  $pw = "";
+  $db = "pvr-cinema";
+
+  $conn =  mysqli_connect($hn,$un,$pw,$db);
+
+  if (isset($_GET['movie_id'])) {
+      $movie_id = $_GET['movie_id'];
+      $query = "SELECT * FROM `movies` WHERE movie_id=$movie_id";
+      $res = $conn->query($query);
+        if($res = mysqli_fetch_array($res)){
+          return $res[$index];
+        }
+      }
+}
+?>
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Add New Movie</title>
   <style>
     body {
       font-family: Georgia, 'Times New Roman', Times, serif;
-      background-image: url("../image/admin.jpg");
+      background-image: url("../image/Admin.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -74,35 +94,30 @@
 <body>
   <div class="container">
     <h1 style="text-align: center;">Movie Details</h1>
-    <form action="testupload.php" method="post" enctype="multipart/form-data" >
+    <form action="testupload.php" method="post" enctype="multipart/form-data">
       <div class="form-group">
         <label for="title"> Movie Title:</label>
-        <input type="text" id="title" name="title" required>
+        <input type="text" id="title" name="title" required value="<?php echo edit(1);?>">
       </div>
       <div class="form-group">
         <label for="description"> Movie Trailer Link:</label>
-        <textarea id="description" name="description" rows="1" required></textarea>
+        <input type="text" id="description" name="description" required value="<?php echo edit(2);?>">
       </div>
       <div class="form-group">
         <label for="start_date">Start Date:</label>
-        <input type="date" id="start_date" name="start_date" required>
+        <input type="date" id="start_date" name="start_date" required value="<?php echo edit(3);?>">
       </div>
       <div class="form-group">
         <label for="end_date">End Date:</label>
-        <input type="date" id="end_date" name="end_date" required>
+        <input type="date" id="end_date" name="end_date" required value="<?php echo edit(4);?>">
       </div>
       <div class="form-group">
         <label for="thumbnail">Movie Thumbnail:</label>
-        <input type="file" id="thumbnail" name="thumbnail" required>
+        <input type="file" id="thumbnail" name="thumbnail" required value="sdsds">
       </div>
-      <!-- <div class="form-group">
-        <label for="backimage">Movie BackImage:</label>
-        <input type="file" id="backimage" name="backimage" required>
-      </div> -->
-
       <div class="form-group">
         <label for="Ticket_price">Ticket Price:</label>
-        <input type="text" id="Ticket_price" name="Ticket_price" required>
+        <input type="text" id="Ticket_price" name="Ticket_price" required value="<?php echo edit(0);?>">
       </div>
       <div class="form-group">
         <button type="submit">Add Movie</button>

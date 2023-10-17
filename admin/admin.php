@@ -1,6 +1,5 @@
 <?php
 
-require '../db_scripts/getviewcount.php';
 require_once '../db_scripts/login.php';
 require '../db_scripts/earnings.php';
 
@@ -26,7 +25,7 @@ if (!isset($_SESSION['username'])) {
     <meta name="keywords"
         content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
     <meta name="description"
-        content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+        content="PVR Cinema">
     <meta name="robots" content="noindex,nofollow">
     <title>Movie Admin Panel</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
@@ -55,19 +54,18 @@ if (!isset($_SESSION['username'])) {
                     <!-- Logo -->
                     <!-- ============================================================== -->
                     <a class="navbar-brand" href="#">
-                        <!-- Logo icon -->
+                        <!-- Logo icon
                         <b class="logo-icon">
-                            <!-- Dark Logo icon -->
+                            Dark Logo icon 
                             <img src="../MovieImages/logo.png" width="30px" alt="homepage" />
                         </b>
-                        <!--End Logo icon -->
+                        End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <em style="color:black; font-size:1.8rem; ">PVR Cinema</em>
+                            <em style="color:blue; font-size:1.9rem; ">PVR CINEMA</em>
                         </span>
                     </a>
-
                     <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
                         href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                 </div>
@@ -77,8 +75,8 @@ if (!isset($_SESSION['username'])) {
 
                         <li>
                             <a class="profile-pic" href="#">
-                                <img src="plugins/images/users/arijit.jpg" alt="user-img" width="36"
-                                    class="img-circle"><span class="text-white font-medium">Admin</span></a>
+                                <img src="plugins/images/barbie.jpg" alt="user-img" width="45" 
+                                class="img-circle"><span class="text-black font-medium">Admin</span></a>
                         </li>
 
                     </ul>
@@ -95,22 +93,8 @@ if (!isset($_SESSION['username'])) {
                         <li class="sidebar-item pt-2">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="admin.php"
                                 aria-expanded="false">
-                                <i class="far fa-server" aria-hidden="true"></i>
+                                <i class="fa fa-server" aria-hidden="true"></i>
                                 <span class="hide-menu">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="basic_table.php"
-                                aria-expanded="false">
-                                <i class="fa fa-table" aria-hidden="true"></i>
-                                <span class="hide-menu">Search Name</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="changepassword.php"
-                                aria-expanded="false">
-                                <i class="fa fa-lock" aria-hidden="true"></i>
-                                <span class="hide-menu">Change Password</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -120,21 +104,27 @@ if (!isset($_SESSION['username'])) {
                                 <span class="hide-menu">Add Movies</span>
                             </a>
                         </li>
-                        <!-- <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="../db_scripts/refund_table.php" aria-expanded="false">
-                                <i class="bi bi-ticket-detailed"></i>
-                                <span class="hide-menu" style="color: red;"> Refund Users </span>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="movie_table.php"
+                                aria-expanded="false">
+                                <i class="fa fa-table" aria-hidden="true"></i>
+                                <span class="hide-menu">Movie Details</span>
                             </a>
-                        </li> -->
-                        <!-- <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="../db_scripts/refund_records.php" aria-expanded="false">
-                                <i class="bi bi-ticket-detailed"></i>
-                                <span class="hide-menu" style="color: red;"> Refund Records </span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="user_table.php"
+                                aria-expanded="false">
+                                <i class="fa fa-table" aria-hidden="true"></i>
+                                <span class="hide-menu">Booked Users</span>
                             </a>
-                        </li> -->
-
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="changepassword.php"
+                                aria-expanded="false">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                                <span class="hide-menu">Change Password</span>
+                            </a>
+                        </li>
                     </ul>
 
                 </nav>
@@ -150,7 +140,7 @@ if (!isset($_SESSION['username'])) {
             <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Dashboard</h4>
+                     <h3 class="panel-title">Theater Activities</h3>  
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
@@ -168,36 +158,21 @@ if (!isset($_SESSION['username'])) {
             <div class="container-fluid">
 
                 <div class="row justify-content-center">
-                    <!-- <div class="col-lg-4 col-md-12"> -->
-                        <!-- <div class="white-box analytics-info">
-                            <h3 class="box-title">Total Seats Booked</h3>
+                     <div class="col-lg-4 col-md-12"> 
+                         <div class="white-box analytics-info">
+                            <h3 class="box-title">Total Movies</h3>
                             <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
                                     <div id="sparklinedash"><canvas width="67" height="30"
                                             style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
                                     </div>
                                 </li>
-                                <li class="ms-auto"><span class="counter text-success">
-                                        <?php echo $total_seats; ?>
+                                <li class="ms-auto"><span class="counter text-blue">
+                                        <?php echo $movies; ?>
                                     </span></li>
                             </ul>
-                        </div> -->
-                    <!-- </div> -->
-                    <div class="col-lg-4 col-md-12">
-                        <div class="white-box analytics-info">
-                            <h3 class="box-title">Total Page Views</h3>
-                            <ul class="list-inline two-part d-flex align-items-center mb-0">
-                                <li>
-                                    <div id="sparklinedash2"><canvas width="67" height="30"
-                                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
-                                    </div>
-                                </li>
-                                <li class="ms-auto"><span class="counter text-purple">
-                                        <?php echo $total_views; ?>
-                                    </span></li>
-                            </ul>
-                        </div>
-                    </div>
+                        </div> 
+                     </div>
                     <div class="col-lg-4 col-md-12">
                         <div class="white-box analytics-info">
                             <h3 class="box-title">Total Earnings Rs</h3>
@@ -230,7 +205,7 @@ if (!isset($_SESSION['username'])) {
                                         class="form-select shadow-none row border-top">
                                             <option value=""> Choose Movies here</option>                                             
                                             <?php
-                                            $query = "select * from `movies`"; //fetching the available routes from the db
+                                            $query = "select * from `movies` where status!='expired'"; //fetching the available routes from the db
                                             $result = mysqli_query($conn, $query);
                                             
                                             $route = $result->fetch_all();
@@ -250,11 +225,10 @@ if (!isset($_SESSION['username'])) {
                                 <table class="table no-wrap">
                                     <thead>
                                         <tr>
+                                            <th class="border-top-0">Booking_ID</th>
                                             <th class="border-top-0">Name</th>
-                                            <th class="border-top-0">Email</th>
-                                            <th class="border-top-0">Age</th>
-                                            <th class="border-top-0">Gender</th>
-                                            <th class="border-top-0">Status</th>
+                                            <th class="border-top-0">Booking_seats</th>
+                                            <th class="border-top-0">Amount</th>
                                         </tr>
                                     </thead>
                                     <tbody id="an">
@@ -271,16 +245,13 @@ if (!isset($_SESSION['username'])) {
                                                     
                                                     <tr>
                                                         <td>
+                                                            <?php echo $rows['booking_id']; ?>
+                                                        </td>
+                                                        <td>
                                                             <?php echo $rows['name']; ?>
                                                         </td>
                                                         <td>
-                                                            <?php echo $rows['email']; ?>
-                                                        </td>
-                                                        <td>
-                                                            <?php echo $rows['age']; ?>
-                                                        </td>
-                                                        <td>
-                                                            <?php echo $rows['gender']; ?>
+                                                            <?php echo $rows['booked_seats']; ?>
                                                         </td>
                                                         <td>
                                                             <?php echo $rows['amount']; ?>
@@ -290,11 +261,9 @@ if (!isset($_SESSION['username'])) {
                                                     <?php
 
                                                 }
-                                                echo '<button onclick="printTable()" class="button">Print</button>';
                                             }
                                             }
                                         else{
-                                        
                                             echo "<h1> No Data found on the particular date</h1>";
                                         }
 
@@ -306,7 +275,9 @@ if (!isset($_SESSION['username'])) {
                     </div>
                 </div>
 
-                <footer class="footer text-center"> 2022 © BusX</footer>
+                <footer class="footer text-center"> 2023 © Admin Panel <a
+                href="https://www.pvrcinemas.com/">pvrcinemas.com</a>
+        </footer>
             </div>
 
         </div>
@@ -336,107 +307,6 @@ if (!isset($_SESSION['username'])) {
   function printTable() {
     // Create a new window for printing
     var printWindow = window.open('', '_blank');
-
-    // Generate the HTML content to be printed
-    var tableHTML = document.getElementById('an').outerHTML;
-  var formattedDate = "<?php echo $formattedDate; ?>";
-  var selectedRoute = "<?php echo $selectedRoute; ?>";
-  var totalAmount = "<?php echo $totalAmount; ?>";
-  var seatCount = "<?php echo $seatCount; ?>";
-    var receiptHTML = `
-      <html>
-      <head>
-        <title>Print</title>
-        <style>
-  body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #F8FAF5;
-  }
-
-  .receipt {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #FFFFFF;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-  }
-
-  .receipt-header {
-    margin-bottom: 20px;
-  }
-
-  .receipt-title {
-    color: #88B04B;
-    font-size: 24px;
-    margin: 0;
-  }
-
-  .receipt-info {
-    font-size: 14px;
-    color: #555555;
-    margin-top: 10px;
-  }
-
-  table {
-    width: 100%;
-    border: 1px solid;
-    margin-bottom: 20px;
-  }
-
-   td {
-    padding: 10px;
-    color:black;
-    border-bottom: 1px solid #ECECEC;
-    vertical-align: bottom;
-    text-align: left;
-  }
-
-  th {
-    padding: 10px;
-    
-    border-bottom: 1px solid #ECECEC;
-    vertical-align: bottom;
-    text-align: left;
-    color:white;
-    background:#000;
-  }
-
-  .receipt-footer {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #555555;
-  }
-</style>
-
-      </head>
-      <body>
-        <div class="receipt">
-          <h1>BusX</h1>
-          <p>Date: ${formattedDate}</p>
-          <p>Route: ${selectedRoute}</p>
-          <p>Total Earning Amount: ${totalAmount}</p>
-          <p>Number of Booked Seats: ${seatCount}</p>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${tableHTML}
-            </tbody>
-          </table>
-          <p>|| Miles of smiles! Always going your way! ||</p>
-        </div>
-      </body>
-      </html>
-    `;
 
     // Set the HTML content of the print window
     printWindow.document.open();

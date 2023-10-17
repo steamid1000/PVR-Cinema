@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $movieInfoQuery ="INSERT INTO `movie_info`() VALUES('$finalMovieID','$movieThumb','$description','$price')";
         mysqli_query($conn,$movieInfoQuery); 
 
-        Redirect('adminpanel.html',true); // might change later to dashboard.php
+        Redirect('admin.php',true); // might change later to dashboard.php
     }
     else {
         Redirect('admin.php',true);

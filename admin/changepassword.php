@@ -9,7 +9,7 @@
         <meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
         <meta name="description" content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
         <meta name="robots" content="noindex,nofollow">
-        <title>BusX - Change Password</title>
+        <title>Change Password</title>
         <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
         <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
@@ -44,11 +44,10 @@
                             <!-- Logo icon -->
                             <b class="logo-icon">
                                 <!-- Dark Logo icon -->
-                                <img src="../MovieImages/logo.png" width="20px" alt="homepage" />
                             </b>
                             <!--End Logo icon -->
                             <!-- Logo text -->
-                            <span class="logo-text" style="color:black;font-size:2.1rem;">PVR Cinema
+                            <span class="logo-text" style="color:black;font-size:2.1rem;">PVR CINEMA
                             </span>
                         </a>
                         <!-- ============================================================== -->
@@ -79,7 +78,7 @@
                             <!-- ============================================================== -->
                             <li>
                                 <a class="profile-pic" href="#">
-                                    <img src="plugins/images/users/arijit.jpg" alt="user-img" width="36" class="img-circle"><span class="text-white font-medium">Admin</span></a>
+                                <img src="plugins/images/barbie.jpg" alt="user-img" width="45"  class="img-circle"><span class="text-white font-medium">Admin</span></a>
                             </li>
                             <!-- ============================================================== -->
                             <!-- User profile and search -->
@@ -105,12 +104,6 @@
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link" href="admin.php" aria-expanded="false">
                                     <i class="fa fa-server" aria-hidden="true"></i>
                                     <span class="hide-menu">Dashboard</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item pt-2">
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="basic_table.php" aria-expanded="false">
-                                    <i class="fa fa-table" aria-hidden="true"></i>
-                                    <span class="hide-menu">Search Name</span>
                                 </a>
                             </li>
                         </ul>
@@ -169,8 +162,9 @@
                             <button  type="submit" onclick="logs()" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem; margin-left:auto; margin-right:auto; margin-bottom:30px;">Change Password</button>
                         </div>
                     </form>
-                    <footer class="footer text-center"> 2023 © PVR <a href="">wrappixel.com</a>
-                    </footer>
+                    <footer class="footer text-center"> 2023 © Admin Panel <a
+                href="https://www.pvrcinemas.com/">pvrcinemas.com</a>
+        </footer>
                     <!-- ============================================================== -->
                     <!-- End footer -->
                     <!-- ============================================================== -->
@@ -205,10 +199,8 @@
                     if (password.value != confirmpassword.value) {
                        alert("The password does not match")
                     }
-                    else if(password.value.length < 8)
-                    {
-                        alert("The password is too short");
-
+                    else if (password.value == confirmpassword.value) {
+                       alert("The password changed Sucessfully!")
                     }
                 }
             </script>

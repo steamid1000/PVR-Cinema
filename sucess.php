@@ -101,6 +101,9 @@ require_once 'db_scripts/login.php';
 
   if ($conn->query($query)) {
     echo "<h1 style='color:Blue;'>Seats Booked</h1>";
+    echo '<script>
+          print();
+          </script>';
   }
 
 ?>

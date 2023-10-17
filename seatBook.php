@@ -10,6 +10,9 @@ $result = $conn->query($query);
 $fetched = $result->fetch_row();
 $film_amount = $fetched[0];
 
+if ($jsonStringAgain == null) {
+  $jsonStringAgain = '[1]';
+}
 //Fetched seats
 // Pass PHP array to JavaScript
 echo "<script>";
@@ -88,6 +91,7 @@ echo "</script>";
     </div>
 
     <div class="row">
+      <div class="seat">25</div>
       <div class="seat">26</div>
       <div class="seat">27</div>
       <div class="seat">28</div>
@@ -95,10 +99,10 @@ echo "</script>";
       <div class="seat">30</div>
       <div class="seat">31</div>
       <div class="seat">32</div>
-      <div class="seat">33</div>
     </div>
 
     <div class="row">
+      <div class="seat">33</div>
       <div class="seat">34</div>
       <div class="seat">35</div>
       <div class="seat">36</div>
@@ -106,10 +110,10 @@ echo "</script>";
       <div class="seat">38</div>
       <div class="seat">39</div>
       <div class="seat">40</div>
-      <div class="seat">41</div>
     </div>
 
     <div class="row">
+      <div class="seat">41</div>
       <div class="seat">42</div>
       <div class="seat">43</div>
       <div class="seat">44</div>
@@ -117,7 +121,6 @@ echo "</script>";
       <div class="seat">46</div>
       <div class="seat">47</div>
       <div class="seat">48</div>
-      <div class="seat">49</div>
     </div>
   </div>
 

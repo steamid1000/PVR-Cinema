@@ -1,6 +1,5 @@
 <?php
 session_start();
-session_destroy();
 require_once '../db_scripts/login.php';
 ?>
 
@@ -9,6 +8,26 @@ require_once '../db_scripts/login.php';
 <head>
 	<title>LOGIN</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<style>
+    body{
+		background:transparent;
+	}
+	form{
+		background:lightyellow;
+	}
+	h2{
+		background:#ffbc34;
+	}
+	button{
+		background:blue;
+		color:white;
+	}
+	button:hover{
+		background:#4fc3f7;
+	}
+
+		</style>
 </head>
 <body>
      <form action="" method="post">
@@ -19,7 +38,7 @@ require_once '../db_scripts/login.php';
      	<label>User Name</label>
      	<input type="text" name="uname" placeholder="User Name"><br>
 
-     	<label>password</label>
+     	<label>Password</label>
      	<input type="password" name="password" placeholder="Password"><br>
 
      	<button type="submit" name="submit">Login</button>
@@ -30,7 +49,6 @@ require_once '../db_scripts/login.php';
 
 <?php
 	if (isset($_POST['submit'])) {
-		session_start();
 		$uname = $_POST['uname'];
 		$pass = $_POST['password'];
 
@@ -38,12 +56,11 @@ require_once '../db_scripts/login.php';
 		$result = $conn->query($query);
 		$resultarr = mysqli_fetch_array($result);
 		if ($resultarr) {
-			$_SESSION['username'] = $uname; // stroing the username for checking for session in the admin panel
-			Redirect('admin.php',true);
+			$_SESSION['username'] = $uname;
+			echo"<script>window.location.href='admin.php';</script>";
 		}
 		else {
 			echo "<h1>Wrong Creditionals</h1>";
-			session_destroy(); // end the session if the login failed
 			die();
 		}
 	}

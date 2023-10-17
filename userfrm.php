@@ -27,8 +27,8 @@
     <title>User Form</title>
     <style>
       body {
-        font-family: Georgia, "Times New Roman", Times, serif;
-        background-image: url("./images/user.jpg");
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-image: url("./image/user.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -43,7 +43,7 @@
         padding: 20px;
         border-radius: 5px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        color: black;
+        color:white;
       }
 
       .form-group {
@@ -130,7 +130,7 @@
   </head>
   <body>
     <div class="container">
-      <h1 style="text-align: center; color: blue">User Form</h1>
+      <h1 style="text-align: center; color: white">User Form</h1>
       <form action="" method="post">
         <div class="form-group">
           <label for="name">Name:</label>
@@ -163,12 +163,12 @@
           />
         </div>
         <div class="form-group">
-          <label for="radio">Gender:</label>
+          <label for="gender">Gender:</label>
         </div>
-        <input type="radio" id="radioBtn" name="gender" value="male" />
-        <label for="radioBtn">Male</label>
-        <input type="radio" id="radioBtn" name="gender" value="female" />
-        <label for="radioBtn">Female</label>
+        <input type="radio" id="male" name="gender" value="Male" />
+        <label for="male"> Male</label>
+        <input type="radio" id="female" name="gender" value="female" />
+        <label for="female"> Female</label>
         <br /><br />
         <div class="form-group">
           <label for="book_date">Booking Date:</label>
