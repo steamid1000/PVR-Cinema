@@ -22,6 +22,10 @@
     while ($data = mysqli_fetch_row($result)) {
         $movie_id = $data[0];
         
+        if ($data[2]== 'Expired') {
+            continue;
+        }
+
         $end_date = $data[4];
         $end_date = date($end_date);
         $end_date = strtotime($end_date);
@@ -37,6 +41,12 @@
         else if ($start_date <= strtotime(date("Y-m-d"))) {
             $quer = "UPDATE `movies` SET status='Active' WHERE movie_id=$movie_id";
             $conn->query($quer);  
+        }
+        else if ($start_date > strtotime(date("Y-m-d"))) {
+            
+            $movieQuery = "UPDATE `movies` SET status='Upcoming' WHERE movie_id=$movie_id";
+            // echo $movieQuery;
+            mysqli_query($conn,$movieQuery);
         }
     }
       
