@@ -101,7 +101,7 @@ function edit($index){
 <body>
   <div class="container">
     <h1 style="text-align: center;">Movie Details</h1>
-    <form action="testupload.php" method="post" enctype="multipart/form-data">
+    <form action="<?php echo (isset($_GET['movie_id']))? "editedData.php":"testupload.php" ?>" method="post" enctype="multipart/form-data">
       <div class="form-group">
         <label for="title"> Movie Title:</label>
         <input type="text" id="title" name="title" required value="<?php echo edit(2);?>">
@@ -120,7 +120,7 @@ function edit($index){
       </div>
       <div class="form-group">
         <label for="thumbnail">Movie Thumbnail:</label>
-        <input type="file" id="thumbnail" name="thumbnail" required>
+        <input type="file" id="thumbnail" name="thumbnail">
       </div>
       <div class="form-group">
         <label for="Ticket_price">Ticket Price:</label>
